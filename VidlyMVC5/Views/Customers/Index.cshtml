@@ -1,0 +1,27 @@
+﻿@model IEnumerable<VidlyMVC5.Models.Customer>
+
+
+<H2>My Customers page</H2>
+
+@if (!Model.Any())
+{
+    <text>No customers</text>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead><tr><td>Customer</td></tr></thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+            <tr>
+                <td>
+                    @Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id }, null)
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
